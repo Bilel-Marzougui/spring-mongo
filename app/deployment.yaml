@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: movie-service
-          image: movie-service:1.0
+          image: oionis/movie-service
           imagePullPolicy: IfNotPresent
           ports:
           - containerPort: 8080
