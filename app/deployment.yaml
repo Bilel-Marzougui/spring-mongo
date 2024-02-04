@@ -14,7 +14,19 @@ spec:
     spec:
       containers:
         - name: movie-service
-          image: oionis/movie-service
+          image: bogeyduffer/movie-service
           imagePullPolicy: IfNotPresent
           ports:
           - containerPort: 8080
+          env:
+            - name: MONGO_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: movie-db-config  
+                  key: database
+            - name: MONGO_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: movie-db-config 
+                  key: host
+          
