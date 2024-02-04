@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: moviedb
+  labels:
+    app: moviedb
+spec:
+  selector: 
+    matchLabels:
+      app: moviedb
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: moviedb
+      name: moviedb-service
+
+      
+    spec:
+      containers:
+      - image: mongo:latest
+        name: moviedb     
+                
+        ports:
+        - containerPort: 27017
+          name: moviedb      
